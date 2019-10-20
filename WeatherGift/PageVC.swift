@@ -9,9 +9,10 @@
 import UIKit
 
 class PageVC: UIPageViewController {
+    
     //Instance variables available to all functions
     var currentPage = 0
-    var locationsArray = ["Local City Weather","Chestnut Hill", "Sydney, Australia","Accra, Ghana","Uglich, Russia"]
+    var locationsArray = [WeatherLocation]() //Need the open/close parens
     var pageControl: UIPageControl!
     var listButton: UIButton!
     var barButtonWidth: CGFloat = 44
@@ -21,6 +22,10 @@ class PageVC: UIPageViewController {
         super.viewDidLoad()
         delegate = self //I'm going to listen for special stuff that will happen... case of swipe events
         dataSource = self //This whole class will pay attention to view controller
+        
+        var newLocation = WeatherLocation()
+        newLocation.name = "Unknown Weather Location"
+        locationsArray.append(newLocation)
 
         setViewControllers([createDetailVC(forPage: 0)], direction: .forward, animated: false, completion: nil)
     }
