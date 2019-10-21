@@ -101,7 +101,7 @@ extension ListVC: UITableViewDelegate, UITableViewDataSource {
         var newWeatherLocation = WeatherLocation() //See TA to understand what is happening here
         let latitude = place.coordinate.latitude
         let longitude = place.coordinate.longitude
-        newWeatherLocation.coordinates = "\(latitude), \(longitude)"
+        newWeatherLocation.coordinates = "\(latitude),\(longitude)"
         print(newWeatherLocation.coordinates)
         newWeatherLocation.name = place.name!
         locationsArray.append(newWeatherLocation)
