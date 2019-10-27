@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8D1D361123665CDD000DDA88 /* DayWeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1D361023665CDD000DDA88 /* DayWeatherCell.swift */; };
 		8D5F9097234EC11A00D0B806 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5F9096234EC11A00D0B806 /* AppDelegate.swift */; };
 		8D5F909C234EC11A00D0B806 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D5F909A234EC11A00D0B806 /* Main.storyboard */; };
 		8D5F909E234EC11B00D0B806 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D5F909D234EC11B00D0B806 /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8D1D361023665CDD000DDA88 /* DayWeatherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayWeatherCell.swift; sourceTree = "<group>"; };
 		8D5F9093234EC11A00D0B806 /* WeatherGift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherGift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D5F9096234EC11A00D0B806 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8D5F909B234EC11A00D0B806 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				8D7E59A9235D08710095D7E5 /* WeatherLocation.swift */,
 				8DE26239234ED3D4003ECD4F /* PageVC.swift */,
 				8D5F90A8234EC17800D0B806 /* DetailVC.swift */,
+				8D1D361023665CDD000DDA88 /* DayWeatherCell.swift */,
 				8DE26237234ED139003ECD4F /* ListVC.swift */,
 				8DB5E386235DFA15001DF15B /* Constants.swift */,
 				8D5F909A234EC11A00D0B806 /* Main.storyboard */,
@@ -233,6 +236,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D1D361123665CDD000DDA88 /* DayWeatherCell.swift in Sources */,
 				8D7E59AA235D08710095D7E5 /* WeatherLocation.swift in Sources */,
 				8DE26238234ED139003ECD4F /* ListVC.swift in Sources */,
 				8DE2623A234ED3D4003ECD4F /* PageVC.swift in Sources */,
