@@ -19,6 +19,7 @@ class ListVC: UIViewController {
     var locationsArray = [WeatherLocation]()
     var currentPage = 0
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -33,6 +34,15 @@ class ListVC: UIViewController {
             currentPage = (tableView.indexPathForSelectedRow?.row)!
             destination.currentPage = currentPage
             destination.locationsArray = locationsArray
+        }
+    }
+    
+    func saveLocations() {
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(locationsArray) {
+            UserDefaults.standard.set(encoded, forKey: "locationsArray")
+        } else {
+            print("ERROR: Saving encoded did not work")
         }
     }
     
@@ -75,6 +85,7 @@ extension ListVC: UITableViewDelegate, UITableViewDataSource {
         if editingStyle == .delete {
             locationsArray.remove(at: indexPath.row) //Delete element
             tableView.deleteRows(at: [indexPath], with: .fade)
+            saveLocations()
         }
     }
     
@@ -82,6 +93,7 @@ extension ListVC: UITableViewDelegate, UITableViewDataSource {
         let itemToMove = locationsArray[sourceIndexPath.row]
         locationsArray.remove(at: sourceIndexPath.row)
         locationsArray.insert(itemToMove, at: destinationIndexPath.row)
+        saveLocations()
     }
     
     //MARK:- tableView Methods to Freeze the First Cell
@@ -98,14 +110,16 @@ extension ListVC: UITableViewDelegate, UITableViewDataSource {
     }
     func updateTable(place: GMSPlace) {
         let newIndexPath = IndexPath(row: locationsArray.count, section: 0)
-        var newWeatherLocation = WeatherLocation() //See TA to understand what is happening here
+        //var newWeatherLocation = WeatherLocation() //See TA to understand what is happening here
         let latitude = place.coordinate.latitude
         let longitude = place.coordinate.longitude
-        newWeatherLocation.coordinates = "\(latitude),\(longitude)"
+        let newCoordinates = "\(latitude),\(longitude)"
+        let newWeatherLocation = WeatherLocation(name: place.name!, coordinates: newCoordinates)
         print(newWeatherLocation.coordinates)
         newWeatherLocation.name = place.name!
         locationsArray.append(newWeatherLocation)
         tableView.insertRows(at: [newIndexPath], with: .automatic)
+        saveLocations()
     }
 }
 
